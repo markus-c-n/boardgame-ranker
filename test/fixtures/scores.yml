@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  player: one
+  total_score: 1
+  city_points: 1
+  coin_points: 1
+  event_points: 1
+  extra_points: 1
+  game_mode: MyString
+
+two:
+  player: two
+  total_score: 1
+  city_points: 1
+  coin_points: 1
+  event_points: 1
+  extra_points: 1
+  game_mode: MyString

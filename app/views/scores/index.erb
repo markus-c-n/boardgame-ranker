@@ -1,0 +1,10 @@
+<h1>Scores</h1>
+
+<% @scores.each do |score| %>
+<div>
+  <p><%= score.player.username %></p>
+  <p><%= score.total_score %></p><hr>
+</div>
+<% end %>
+
+<%= link_to "Players", players_path %>
