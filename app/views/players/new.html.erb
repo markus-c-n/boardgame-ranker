@@ -1,0 +1,9 @@
+<h1>Add player</h1>
+
+<%= form_for(@player) do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.submit :create %>
+<% end %>

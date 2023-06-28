@@ -1,17 +1,3 @@
-<h1>Scores</h1>
-
-<% @scores.each do |score| %>
-  <div>
-    <p><strong><%= score.player.username %></p></strong>
-    <p><em><%= score.game_mode %></p></em>
-    <p>Total score:<%= score.total_score %></p>
-    <p>City score:<%= score.city_points %></p>
-    <%= link_to "x", score_path(score), data: { turbo_method: :delete, turbo_confirm: "Delete Score?" } %>
-  </div>
-<% end %>
-
-<%= link_to "Players", players_path %>
-
 <%= form_for(@score, url: scores_path) do |f| %>
   <div class="field">
     <%= f.label :player_id %>
@@ -20,6 +6,10 @@
   <div class="field">
     <%= f.label :game_mode %>
     <%= f.select :game_mode, ["Classic", "Pearlbrook", "Bellfair"] %>
+  </div>
+  <div class="field">
+    <%= f.label :total_score %>
+    <%= f.number_field :total_score %>
   </div>
   <div class="field">
     <%= f.label :city_points %>
@@ -38,13 +28,4 @@
     <%= f.number_field :extra_points %>
   </div>
   <%= f.submit %>
-  <div>
-  <p>Or add the total score directly (optional)</p>
-  </div>
-  <div class="field">
-    <%= f.label :total_score %>
-    <%= f.number_field :total_score %>
-  </div>
 <% end %>
-
-<%# <%= render partial: 'form', locals: { score: @score } %> %>
