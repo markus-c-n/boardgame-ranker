@@ -2,6 +2,11 @@ class ScoresController < ApplicationController
   def index
     @scores = Score.all
     @score = Score.new
+    @top_scores = Score.order(total_score: :desc).limit(3)
+    @top_city = Score.order(city_points: :desc).limit(1)
+    @top_coin = Score.order(coin_points: :desc).limit(1)
+    @top_event = Score.order(event_points: :desc).limit(1)
+    @top_extra = Score.order(event_points: :desc).limit(1)
   end
 
   def new

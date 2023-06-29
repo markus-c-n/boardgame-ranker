@@ -1,11 +1,36 @@
-<h1>Scores</h1>
+<h1>Everdell Scoreboard</h1>
 
-<% @scores.each do |score| %>
+<div>
+  <p>Top 3</p>
+  <% @top_scores.each do |score|%>
+    <p><%= score.total_score %></p>
+    <p><%= score.player.name %></p>
+    <p><%= score.created_at %></p>
+  <% end %>
+</div>
+<div>
+  <p>Most city points</p>
+  <p><%= @top_city.first.total_score %> - <%= @top_city.first.player.name %></p>
+</div>
+<div>
+  <p>Most coin points</p>
+  <p><%= @top_coin.first.coin_points %> - <%= @top_coin.first.player.name %></p>
+</div>
+<div>
+  <p>Most event points</p>
+  <p><%= @top_event.first.event_points %> - <%= @top_event.first.player.name %></p>
+</div>
+<div>
+  <p>Most extra points</p>
+  <p><%= @top_extra.first.extra_points%> - <%= @top_extra.first.player.name %></p>
+</div>
+
+<% @scores.reverse.each do |score| %>
   <div>
     <p><strong><%= score.player.username %></p></strong>
     <p><em><%= score.game_mode %></p></em>
     <p>Total score:<%= score.total_score %></p>
-    <p>City score:<%= score.city_points %></p>
+    <p><%= score.created_at %></p>
     <%= link_to "x", score_path(score), data: { turbo_method: :delete, turbo_confirm: "Delete Score?" } %>
   </div>
 <% end %>
