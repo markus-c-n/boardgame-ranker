@@ -1,11 +1,15 @@
-<h1>Everdell Scoreboard</h1>
+<p class="text-2xl">Everdell Scoreboard</p>
 
-<div>
-  <p>Top 3</p>
+<div class="bg-gray-200 m-2 p-5 ">
+  <p class="text-xl font-semibold text-center">Highscores</p>
   <% @top_scores.each do |score|%>
-    <p><%= score.total_score %></p>
-    <p><%= score.player.name %></p>
-    <p><%= score.created_at %></p>
+    <div class="m-2 p-2 w-80 bg-green-300 rounded-md shadow-md">
+      <div class="bg-green-100 rounded-sm p-1">
+        <p class="font-semibold text-center"><%= score.total_score %>🏅</p>
+      </div>
+      <p><%= score.player.name %></p>
+      <p class="text-gray-800 text-sm"><em><%= score.created_at.strftime('%m/%d/%Y') %></em></p>
+    </div>
   <% end %>
 </div>
 <div>
